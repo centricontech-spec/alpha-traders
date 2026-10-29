@@ -17,15 +17,16 @@ const base = {
 export function LogoMark(props: IconProps) {
   return (
     <svg {...base} viewBox="0 0 32 32" strokeWidth={0} {...props}>
-      <rect width="32" height="32" rx="9" fill="url(#efh-g)" />
-      <path d="M9 21.5 13.5 16l3.5 3 6-8.5" stroke="#17120a" strokeWidth="2.4" fill="none" />
-      <path d="M19 10.5h4v4" stroke="#17120a" strokeWidth="2.4" fill="none" />
-      <defs>
-        <linearGradient id="efh-g" x1="0" y1="0" x2="32" y2="32">
-          <stop stopColor="#f3d38b" />
-          <stop offset="1" stopColor="#b8862b" />
-        </linearGradient>
-      </defs>
+      <rect width="32" height="32" fill="var(--gold)" />
+      <path d="M8 22 13.5 15.5l4 3.5L24 10" stroke="var(--ink)" strokeWidth="2.6" fill="none" strokeLinecap="square" />
+    </svg>
+  );
+}
+
+export function ArrowLeft(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M19 12H5M11 6l-6 6 6 6" />
     </svg>
   );
 }
@@ -120,11 +121,6 @@ export function FeatureIcon({ name, ...props }: IconProps & { name: string }) {
 }
 
 const socialIcons: Record<string, (p: IconProps) => React.ReactElement> = {
-  telegram: (p) => (
-    <svg {...base} fill="currentColor" stroke="none" {...p}>
-      <path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.3 13l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 2.9c.9-.3 1.6.2 1.4 1.4Z" />
-    </svg>
-  ),
   instagram: (p) => (
     <svg {...base} {...p}>
       <rect x="3" y="3" width="18" height="18" rx="5" />
@@ -142,6 +138,11 @@ const socialIcons: Record<string, (p: IconProps) => React.ReactElement> = {
       <path d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.5l11.2 14.5Z" />
     </svg>
   ),
+  discord: (p) => (
+    <svg {...base} fill="currentColor" stroke="none" {...p}>
+      <path d="M20.3 4.4A19.6 19.6 0 0 0 15.4 3l-.6 1.3a18 18 0 0 0-5.6 0L8.6 3a19.5 19.5 0 0 0-4.9 1.4C1.1 9 .4 13.5.7 18.1a19.7 19.7 0 0 0 6 3l1.3-2.1c-.7-.3-1.4-.6-2-1l.5-.4a14 14 0 0 0 11.8 0l.5.4-2 1 1.3 2.1a19.6 19.6 0 0 0 6-3c.5-5.2-.8-9.7-3.4-13.7ZM8.5 15.4c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.2 1.1 2.1 2.4c0 1.3-.9 2.4-2.1 2.4Zm7 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.2 1.1 2.1 2.4c0 1.3-.9 2.4-2.1 2.4Z" />
+    </svg>
+  ),
   whatsapp: (p) => (
     <svg {...base} fill="currentColor" stroke="none" {...p}>
       <path d="M20.5 3.5A11.8 11.8 0 0 0 1.9 17.7L.2 24l6.4-1.7A11.8 11.8 0 0 0 24 12a11.7 11.7 0 0 0-3.5-8.5ZM12 21.6c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.4 4.7Zm5.4-7.3c-.3-.2-1.8-.9-2-1s-.5-.1-.7.2l-.9 1.1c-.2.2-.3.2-.6.1a8 8 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5 4.5 1.9.8 2.6.9 3.6.7.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4l-.5-.3Z" />
@@ -150,6 +151,6 @@ const socialIcons: Record<string, (p: IconProps) => React.ReactElement> = {
 };
 
 export function SocialIcon({ name, ...props }: IconProps & { name: string }) {
-  const Icon = socialIcons[name] ?? socialIcons.telegram;
+  const Icon = socialIcons[name] ?? socialIcons.instagram;
   return <Icon {...props} />;
 }

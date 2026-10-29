@@ -20,6 +20,7 @@ export const nav = [
   { label: "Method", href: "#method" },
   { label: "Program", href: "#program" },
   { label: "Pricing", href: "#pricing" },
+  { label: "Reviews", href: "#testimonials" },
   { label: "Community", href: "#socials" },
   { label: "FAQ", href: "#faq" },
 ];
@@ -156,11 +157,11 @@ export const curriculum = [
   },
 ];
 
-// PLACEHOLDER: pricing tiers, names, prices and features
+// Prices confirmed; plan names and features are still PLACEHOLDER
 export const plans = [
   {
     name: "Community",
-    price: "$29",
+    price: "$14.99",
     period: "/month",
     description: "Daily analysis and the community, for traders who want structure every day.",
     features: [
@@ -175,13 +176,13 @@ export const plans = [
   },
   {
     name: "Elite Program",
-    price: "$199",
-    period: "one-time",
+    price: "$49",
+    period: "/month",
     description: "The full course plus everything in Community, to learn the method end to end.",
     features: [
-      "Everything in Community for 3 months",
+      "Everything in Community",
       "Full 7-module video course",
-      "Lifetime access to course updates",
+      "New lessons added every month",
       "Weekly live market review",
       "Risk and journaling templates",
     ],
@@ -190,7 +191,7 @@ export const plans = [
   },
   {
     name: "Mentorship",
-    price: "$499",
+    price: "$99",
     period: "one-time",
     description: "Direct guidance from Junaid for traders ready to go deeper.",
     features: [
@@ -205,55 +206,44 @@ export const plans = [
   },
 ];
 
-// PLACEHOLDER: replace with real member testimonials (with their permission)
-export const testimonials = [
-  {
-    quote:
-      "Seeing the bias before the open changed everything. I stopped chasing moves and started waiting for my levels.",
-    name: "Member name",
-    role: "Gold trader",
-  },
-  {
-    quote:
-      "The losing trade breakdowns taught me more than any course I've bought. Nothing is hidden.",
-    name: "Member name",
-    role: "Part-time FX trader",
-  },
-  {
-    quote:
-      "No indicators, no noise. I finally understand market structure and can find my own bias.",
-    name: "Member name",
-    role: "Beginner trader",
-  },
-];
-
-// PLACEHOLDER: replace handles and URLs with the real accounts
 export const socials = [
   {
-    name: "Telegram",
-    handle: "@eliteforexhub",
-    href: "https://t.me/eliteforexhub",
-    blurb: "Daily bias and key levels, posted before the open.",
-    icon: "telegram",
-  },
-  {
     name: "Instagram",
-    handle: "@eliteforexhub",
-    href: "https://instagram.com/eliteforexhub",
+    label: "Elite Forex Official",
+    handle: "@eliteforexhub_",
+    href: "https://www.instagram.com/eliteforexhub_/",
     blurb: "Chart breakdowns, lessons and community moments.",
     icon: "instagram",
   },
   {
+    name: "Instagram",
+    label: "Junaid Rizv Official",
+    handle: "@junaidrzv",
+    href: "https://www.instagram.com/junaidrzv/",
+    blurb: "Junaid's own feed: daily bias, trades and thoughts.",
+    icon: "instagram",
+  },
+  {
     name: "YouTube",
-    handle: "@eliteforexhub",
-    href: "https://youtube.com/@eliteforexhub",
+    label: "Junaid Rizv",
+    handle: "@junaidrizv",
+    href: "https://www.youtube.com/@junaidrizv/",
     blurb: "Long-form market reviews and free lessons.",
     icon: "youtube",
   },
   {
+    name: "Discord",
+    label: "Elite Forex Hub",
+    handle: "Join the server",
+    href: "https://discord.gg/QZ4jaDKNP7",
+    blurb: "Where the community trades, asks and reviews together.",
+    icon: "discord",
+  },
+  {
     name: "X",
-    handle: "@eliteforexhub",
-    href: "https://x.com/eliteforexhub",
+    label: "Rizv Trades",
+    handle: "@rizvtrades",
+    href: "https://x.com/rizvtrades",
     blurb: "Quick market notes during the session.",
     icon: "x",
   },
