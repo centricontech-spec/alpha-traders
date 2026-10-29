@@ -1,5 +1,6 @@
 import { disclaimer, nav, site, socials } from "@/lib/content";
-import { LogoMark, SocialIcon } from "./icons";
+import Image from "next/image";
+import { SocialIcon } from "./icons";
 
 export function Footer() {
   return (
@@ -8,7 +9,7 @@ export function Footer() {
         <div className="grid gap-12 border-b border-line pb-14 md:grid-cols-12">
           <div className="md:col-span-5">
             <a href="#top" className="flex items-center gap-3">
-              <LogoMark className="h-8 w-8" />
+              <Image src="/logo-mark.png" alt="" width={513} height={398} className="h-11 w-auto" />
               <span className="display text-3xl">{site.name}</span>
             </a>
             <p className="mt-5 max-w-sm leading-relaxed text-bone-dim">{site.tagline}</p>

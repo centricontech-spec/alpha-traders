@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { nav, site } from "@/lib/content";
-import { ArrowRight, Close, LogoMark, Menu } from "./icons";
+import Image from "next/image";
+import { ArrowRight, Close, Menu } from "./icons";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -30,7 +31,7 @@ export function Navbar() {
     >
       <nav aria-label="Main" className="frame flex h-16 items-center justify-between gap-6">
         <a href="#top" className="flex items-center gap-3" aria-label={`${site.name} home`}>
-          <LogoMark className="h-7 w-7" />
+          <Image src="/logo-mark.png" alt="" width={513} height={398} priority className="h-8 w-auto" />
           <span className="display text-[1.35rem] leading-none tracking-wide">{site.name}</span>
         </a>
 

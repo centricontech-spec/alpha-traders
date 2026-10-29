@@ -12,9 +12,9 @@
   --bone-dim: #a39a87;
   --paper: #ece5d3;
   --paper-ink: #1a1610;
-  --gold: #c9a24b;
-  --gold-hi: #e0bd68;
-  --gold-deep: #8a6a24;
+  --gold: #c8a865;
+  --gold-hi: #dcc184;
+  --gold-deep: #86703f;
   --bull: #74b88f;
   --bear: #d0705e;
 }
@@ -160,6 +160,16 @@ body {
       linear-gradient(to bottom, rgb(236 227 207 / 0.035) 1px, transparent 1px);
     background-size: 64px 64px;
   }
+}
+
+/* Hero elements wait for GSAP to reveal them (visible without JS or with reduced motion) */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-hide {
+    visibility: hidden;
+  }
+}
+.hero-line {
+  padding-bottom: 0.04em;
 }
 
 /* Gold ticker band */

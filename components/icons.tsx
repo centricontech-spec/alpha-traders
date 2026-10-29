@@ -14,15 +14,6 @@ const base = {
   "aria-hidden": true,
 };
 
-export function LogoMark(props: IconProps) {
-  return (
-    <svg {...base} viewBox="0 0 32 32" strokeWidth={0} {...props}>
-      <rect width="32" height="32" fill="var(--gold)" />
-      <path d="M8 22 13.5 15.5l4 3.5L24 10" stroke="var(--ink)" strokeWidth="2.6" fill="none" strokeLinecap="square" />
-    </svg>
-  );
-}
-
 export function ArrowLeft(props: IconProps) {
   return (
     <svg {...base} {...props}>
