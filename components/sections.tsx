@@ -1,17 +1,5 @@
-import {
-  about,
-  closing,
-  curriculum,
-  daily,
-  different,
-  faqs,
-  instruments,
-  pillars,
-  plans,
-  site,
-  socials,
-} from "@/lib/content";
-import { ArrowRight, Check, Cross, FeatureIcon, Plus, SocialIcon } from "./icons";
+import { about, closing, curriculum, daily, mentorship, plans, site, socials } from "@/lib/content";
+import { ArrowRight, Check, FeatureIcon, SocialIcon } from "./icons";
 
 // Section header used across the page: index number + label on a hairline rule
 function SectionTag({ index, label, tone = "dark" }: { index: string; label: string; tone?: "dark" | "light" }) {
@@ -31,22 +19,6 @@ function SectionTag({ index, label, tone = "dark" }: { index: string; label: str
 }
 
 const delay = (i: number, step = 70) => ({ "--reveal-delay": `${i * step}ms` }) as React.CSSProperties;
-
-export function Ticker() {
-  const items = [...instruments, ...instruments];
-  return (
-    <div className="marquee overflow-hidden bg-gold py-3 text-ink" aria-label="Markets covered">
-      <ul className="marquee-track flex w-max">
-        {items.map((pair, i) => (
-          <li key={i} aria-hidden={i >= instruments.length} className="display flex items-center text-2xl">
-            <span className="px-6">{pair}</span>
-            <span className="h-2 w-2 rotate-45 bg-ink" aria-hidden />
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 
 export function About() {
   return (
@@ -88,44 +60,11 @@ export function About() {
   );
 }
 
-export function Method() {
-  return (
-    <section id="method" className="border-t border-line bg-ink-2 py-20 lg:py-28">
-      <div className="frame">
-        <SectionTag index="02" label="The method" />
-        <div className="mt-12 grid gap-8 lg:grid-cols-12">
-          <h2 data-reveal className="display text-[clamp(3rem,7vw,6.5rem)] lg:col-span-7">
-            Simple, but <span className="text-gold">powerful.</span>
-          </h2>
-          <p data-reveal className="text-lg leading-relaxed text-bone-dim lg:col-span-4 lg:col-start-9 lg:self-end">
-            Four steps, repeated every day. No indicator overload and no guesswork, just a clear way of reading
-            what price is telling you.
-          </p>
-        </div>
-      </div>
-      <ol className="frame mt-14 grid sm:grid-cols-2 lg:grid-cols-4">
-        {pillars.map((p, i) => (
-          <li
-            key={p.step}
-            data-reveal
-            style={delay(i)}
-            className="group border-t border-line py-8 sm:px-6 sm:[&:nth-child(odd)]:pl-0 sm:[&:nth-child(even)]:border-l lg:border-l lg:[&:nth-child(odd)]:pl-6 lg:first:border-l-0 lg:first:pl-0"
-          >
-            <span className="display block text-7xl text-gold/30 transition-colors group-hover:text-gold">{p.step}</span>
-            <h3 className="mt-6 text-xl font-semibold">{p.title}</h3>
-            <p className="mt-3 leading-relaxed text-bone-dim">{p.body}</p>
-          </li>
-        ))}
-      </ol>
-    </section>
-  );
-}
-
 export function Daily() {
   return (
-    <section className="py-20 lg:py-28">
+    <section id="included" className="py-20 lg:py-28">
       <div className="frame">
-        <SectionTag index="03" label={daily.eyebrow} />
+        <SectionTag index="02" label={daily.eyebrow} />
         <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-5">
             <h2 data-reveal className="display text-[clamp(2.8rem,6vw,5.5rem)]">
@@ -157,82 +96,44 @@ export function Daily() {
   );
 }
 
-// Light "paper" section to break the run of dark sections
-export function Different() {
-  return (
-    <section className="bg-paper py-20 text-paper-ink lg:py-28">
-      <div className="frame">
-        <SectionTag index="04" label={different.eyebrow} tone="light" />
-        <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-5">
-            <h2 data-reveal className="display text-[clamp(3rem,7vw,6.5rem)]">
-              {different.title}
-            </h2>
-            <p data-reveal className="mt-8 text-lg leading-relaxed text-paper-ink/75">
-              {different.body}
-            </p>
-            <p data-reveal className="mt-5 text-lg leading-relaxed text-paper-ink/75">
-              {different.focus}
-            </p>
-          </div>
-          <div data-reveal className="lg:col-span-7 lg:pl-8">
-            <div className="label grid grid-cols-2 border-b-2 border-paper-ink pb-3">
-              <span className="text-paper-ink/60">Most trading groups</span>
-              <span className="pl-5 text-paper-ink">{site.name}</span>
-            </div>
-            <ul>
-              {different.compare.map(([bad, good]) => (
-                <li key={good} className="grid grid-cols-2 border-b border-paper-ink/15">
-                  <p className="flex items-start gap-3 py-5 pr-4 text-paper-ink/55 line-through decoration-paper-ink/25">
-                    <Cross className="mt-1 h-4 w-4 shrink-0 text-bear" />
-                    <span>{bad}</span>
-                  </p>
-                  <p className="flex items-start gap-3 border-l border-paper-ink/15 py-5 pl-5 font-medium">
-                    <Check className="mt-1 h-4 w-4 shrink-0 text-gold-deep" />
-                    <span>{good}</span>
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function Program() {
-  const total = curriculum.reduce((n, m) => n + m.lessons, 0);
   return (
-    <section id="program" className="py-20 lg:py-28">
+    <section id="program" className="border-t border-line bg-ink-2 py-20 lg:py-28">
       <div className="frame">
-        <SectionTag index="05" label="The program" />
+        <SectionTag index="03" label={mentorship.eyebrow} />
         <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-10">
           <div className="lg:sticky lg:top-24 lg:col-span-5 lg:self-start">
-            <h2 data-reveal className="display text-[clamp(2.8rem,6vw,5.5rem)]">
-              From reading price to finding your own bias.
+            <h2 data-reveal className="display text-[clamp(2.8rem,5.5vw,5rem)]">
+              {mentorship.title}
             </h2>
-            <p data-reveal className="mt-8 max-w-lg text-lg leading-relaxed text-bone-dim">
-              A structured course that teaches the exact process behind the daily analysis, so you can apply it
-              on your own charts.
+            <p data-reveal className="mt-5 text-2xl font-medium text-gold">
+              {mentorship.subtitle}
             </p>
-            <dl data-reveal className="mt-10 grid max-w-sm grid-cols-2 border-t border-line">
-              <div className="pt-5">
-                <dt className="label text-bone-dim">Modules</dt>
-                <dd className="display mt-2 text-6xl text-gold">{curriculum.length}</dd>
-              </div>
-              <div className="border-l border-line pl-6 pt-5">
-                <dt className="label text-bone-dim">Lessons</dt>
-                <dd className="display mt-2 text-6xl text-gold">{total}+</dd>
-              </div>
-            </dl>
+            <p data-reveal className="mt-6 max-w-lg text-lg leading-relaxed text-bone-dim">
+              {mentorship.body}
+            </p>
+            <div data-reveal className="mt-10">
+              <p className="label text-gold">What&apos;s included</p>
+              <ul className="mt-4 border-t border-line">
+                {mentorship.includes.map((item) => (
+                  <li key={item} className="flex gap-3 border-b border-line py-3.5">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href="#pricing" className="btn btn-gold mt-8 w-full sm:w-auto sm:min-w-64">
+                Apply for mentorship
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
           </div>
           <ol className="lg:col-span-7 lg:pl-8">
             {curriculum.map((m, i) => (
               <li
                 key={m.title}
                 data-reveal
-                className="group grid grid-cols-[3.5rem_1fr] gap-x-4 border-t border-line py-7 transition-colors last:border-b hover:bg-ink-2 sm:grid-cols-[4.5rem_1fr_auto]"
+                className="group grid grid-cols-[3.5rem_1fr] gap-x-4 border-t border-line py-7 transition-colors last:border-b hover:bg-ink sm:grid-cols-[4.5rem_1fr_auto]"
               >
                 <span className="display text-4xl text-bone-dim transition-colors group-hover:text-gold">
                   {String(i + 1).padStart(2, "0")}
@@ -255,35 +156,35 @@ export function Program() {
 
 export function Pricing() {
   return (
-    <section id="pricing" className="border-t border-line bg-ink-2 py-20 lg:py-28">
+    <section id="pricing" className="py-20 lg:py-28">
       <div className="frame">
-        <SectionTag index="06" label="Pricing" />
+        <SectionTag index="04" label="Pricing" />
         <div className="mt-12 grid gap-8 lg:grid-cols-12">
           <h2 data-reveal className="display text-[clamp(3rem,7vw,6.5rem)] lg:col-span-7">
             Choose how you <span className="text-gold">learn.</span>
           </h2>
           <p data-reveal className="text-lg leading-relaxed text-bone-dim lg:col-span-4 lg:col-start-9 lg:self-end">
-            Start with the daily analysis, or go deeper with the full program and mentorship.
+            Join the community for the daily analysis, or go one on one with Junaid.
           </p>
         </div>
 
-        <div className="mt-14 grid border border-line lg:grid-cols-3">
+        <div className="mt-14 grid border border-line md:grid-cols-2">
           {plans.map((plan, i) => (
             <article
               key={plan.name}
               data-reveal
               style={delay(i, 90)}
-              className={`relative flex flex-col p-7 sm:p-9 ${i > 0 ? "border-t border-line lg:border-l lg:border-t-0" : ""} ${
-                plan.featured ? "bg-ink-3" : "bg-ink"
+              className={`relative flex flex-col p-7 sm:p-9 ${i > 0 ? "border-t border-line md:border-l md:border-t-0" : ""} ${
+                plan.badge ? "bg-ink-3" : "bg-ink-2"
               }`}
             >
-              {plan.featured && <span className="absolute inset-x-0 top-0 h-1 bg-gold" aria-hidden />}
+              {plan.badge && <span className="absolute inset-x-0 top-0 h-1 bg-gold" aria-hidden />}
               <div className="flex items-center justify-between">
                 <h3 className="label text-bone">{plan.name}</h3>
-                {plan.featured && <span className="label bg-gold px-2 py-1 text-ink">Most popular</span>}
+                {plan.badge && <span className="label bg-gold px-2 py-1 text-ink">{plan.badge}</span>}
               </div>
               <p className="mt-8 flex items-end gap-3">
-                <span className={`display text-8xl ${plan.featured ? "text-gold" : "text-bone"}`}>{plan.price}</span>
+                <span className={`display text-8xl ${plan.badge ? "text-gold" : "text-bone"}`}>{plan.price}</span>
                 <span className="label mb-2 text-bone-dim">{plan.period}</span>
               </p>
               <p className="mt-6 min-h-12 leading-relaxed text-bone-dim">{plan.description}</p>
@@ -295,7 +196,7 @@ export function Pricing() {
                   </li>
                 ))}
               </ul>
-              <a href={site.joinUrl} className={`btn mt-8 w-full ${plan.featured ? "btn-gold" : "btn-line"}`}>
+              <a href={site.joinUrl} className={`btn mt-8 w-full ${plan.badge ? "btn-gold" : "btn-line"}`}>
                 {plan.cta}
                 <ArrowRight className="h-4 w-4" />
               </a>
@@ -322,7 +223,7 @@ export function Socials() {
   return (
     <section id="socials" className="py-20 lg:py-28">
       <div className="frame">
-        <SectionTag index="08" label="Follow along" />
+        <SectionTag index="06" label="Follow along" />
         <div className="mt-12 grid gap-8 lg:grid-cols-12">
           <h2 data-reveal className="display text-[clamp(3rem,7vw,6.5rem)] lg:col-span-7">
             Join the conversation.
@@ -364,39 +265,11 @@ export function Socials() {
   );
 }
 
-export function Faq() {
-  return (
-    <section id="faq" className="border-t border-line bg-ink-2 py-20 lg:py-28">
-      <div className="frame">
-        <SectionTag index="09" label="FAQ" />
-        <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-10">
-          <h2 data-reveal className="display text-[clamp(3rem,7vw,6.5rem)] lg:col-span-5">
-            Questions, answered.
-          </h2>
-          <div data-reveal className="lg:col-span-7 lg:pl-8">
-            <div className="border-b border-line">
-            {faqs.map((f) => (
-              <details key={f.q} className="group border-t border-line">
-                <summary className="flex min-h-16 cursor-pointer items-center justify-between gap-6 py-5 text-left text-lg font-medium transition-colors hover:text-gold">
-                  {f.q}
-                  <Plus className="faq-icon h-5 w-5 shrink-0 text-gold transition-transform duration-200" />
-                </summary>
-                <p className="max-w-2xl pb-6 leading-relaxed text-bone-dim">{f.a}</p>
-              </details>
-            ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function Closing() {
   return (
     <section className="bg-gold text-ink">
       <div className="frame grid gap-10 py-20 lg:grid-cols-12 lg:py-28">
-        <h2 data-reveal className="display text-[clamp(3rem,8vw,7.5rem)] lg:col-span-8">
+        <h2 data-reveal className="display text-[clamp(3rem,6vw,5.5rem)] lg:col-span-8">
           {closing.title}
         </h2>
         <div data-reveal className="flex flex-col justify-end gap-8 lg:col-span-4">

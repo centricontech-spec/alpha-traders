@@ -98,6 +98,18 @@ const featureIcons: Record<string, (p: IconProps) => React.ReactElement> = {
       <circle cx="12" cy="12" r="0.8" fill="currentColor" />
     </svg>
   ),
+  chat: (p) => (
+    <svg {...base} {...p}>
+      <path d="M4 5h16v11H9l-5 4V5Z" />
+      <path d="M8 9.5h8M8 12.5h5" />
+    </svg>
+  ),
+  play: (p) => (
+    <svg {...base} {...p}>
+      <rect x="3" y="5" width="18" height="14" rx="1" />
+      <path d="m10 9 5 3-5 3V9Z" fill="currentColor" />
+    </svg>
+  ),
   book: (p) => (
     <svg {...base} {...p}>
       <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z" />

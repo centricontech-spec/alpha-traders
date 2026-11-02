@@ -6,13 +6,9 @@ import {
   About,
   Closing,
   Daily,
-  Different,
-  Faq,
-  Method,
   Pricing,
   Program,
   Socials,
-  Ticker,
 } from "@/components/sections";
 import { Testimonials } from "@/components/testimonials";
 
@@ -28,16 +24,12 @@ export default function Home() {
       <Navbar />
       <main id="main" className="flex-1">
         <Hero />
-        <Ticker />
         <About />
-        <Method />
         <Daily />
-        <Different />
         <Program />
         <Pricing />
         <Testimonials />
         <Socials />
-        <Faq />
         <Closing />
       </main>
       <Footer />

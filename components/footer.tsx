@@ -103,7 +103,7 @@ export function Footer() {
       </div>
 
       {/* Oversized wordmark to close the page */}
-      <p aria-hidden className="display select-none overflow-hidden whitespace-nowrap text-center text-[15.5vw] leading-[0.78] text-ink-3">
+      <p aria-hidden className="frame display select-none overflow-hidden whitespace-nowrap text-center text-[clamp(3.5rem,13.5vw,10.5rem)] leading-[0.78] text-ink-3">
         Elite Forex Hub
       </p>
     </footer>

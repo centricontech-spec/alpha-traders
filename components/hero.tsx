@@ -141,8 +141,7 @@ export function Hero() {
           )
           .from(q("[data-level-label]"), { autoAlpha: 0, x: 8, duration: 0.5, stagger: 0.15 }, "-=0.4")
           .from(q("[data-price]"), { autoAlpha: 0, duration: 0.5 }, "-=0.2")
-          .from(q("[data-row]"), { autoAlpha: 0, x: 16, duration: 0.6, stagger: 0.08 }, "-=0.6")
-          .from(q("[data-stat]"), { autoAlpha: 0, y: 24, duration: 0.8, stagger: 0.08 }, 1.0);
+          .from(q("[data-row]"), { autoAlpha: 0, x: 16, duration: 0.6, stagger: 0.08 }, "-=0.6");
 
         // Idle life once the intro has played: live candle breathes, price marker pings
         tl.add(() => {
@@ -223,7 +222,7 @@ export function Hero() {
             <p data-eyebrow className="hero-hide label text-gold">
               Gold &amp; major FX / daily bias before the open
             </p>
-            <h1 data-headline className="hero-hide display mt-6 text-[clamp(3.4rem,8.4vw,9.5rem)]">
+            <h1 data-headline className="hero-hide display mt-6 text-[clamp(3.2rem,7.4vw,7.25rem)]">
               Read the structure.
               <br />
               <span className="text-gold">
@@ -233,7 +232,7 @@ export function Hero() {
               Trade the plan.
             </h1>
           </div>
-          <div className="mt-10 grid gap-8 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
+          <div className="mt-10 flex flex-col gap-8">
             <p data-copy className="hero-hide max-w-xl text-lg leading-relaxed text-bone-dim">
               Learn to trade gold and forex with <span className="text-bone">{site.trader}</span>. Analysis,
               key levels and trade ideas shared before the market opens, with the reasoning behind every one.
@@ -243,8 +242,8 @@ export function Hero() {
                 Join Elite Forex Hub
                 <ArrowRight className="h-4 w-4" />
               </a>
-              <a data-cta href="#method" className="hero-hide btn btn-line">
-                How it works
+              <a data-cta href="#included" className="hero-hide btn btn-line">
+                What&apos;s included
                 <ArrowRight className="h-4 w-4" />
               </a>
             </div>
@@ -256,26 +255,6 @@ export function Hero() {
         </div>
       </div>
 
-      <dl className="frame grid grid-cols-2 border-t border-line md:grid-cols-4">
-        {[
-          ["Pre-open", "Bias posted before the session"],
-          ["Every loss", "Broken down in the open"],
-          ["XAU + majors", "A focused watchlist"],
-          ["Zero", "Indicator overload"],
-        ].map(([k, v], i) => (
-          <div
-            key={v}
-            data-stat
-            className={`hero-hide py-6 md:px-6 ${i % 2 === 1 ? "border-l border-line pl-5" : ""} ${i > 0 ? "md:border-l md:border-line" : "md:pl-0"} ${i > 1 ? "border-t border-line md:border-t-0" : ""}`}
-          >
-            <dt className="sr-only">{v}</dt>
-            <dd>
-              <span className="display block text-3xl lg:text-4xl">{k}</span>
-              <span className="label mt-2 block text-bone-dim">{v}</span>
-            </dd>
-          </div>
-        ))}
-      </dl>
     </section>
   );
 }

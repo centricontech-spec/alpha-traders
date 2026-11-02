@@ -73,7 +73,7 @@ export function TestimonialSlider({ images }: { images: string[] }) {
       <div className="frame">
         <div className="label flex items-center justify-between border-t border-line pt-4 text-bone-dim">
           <span>
-            <span className="text-gold">07</span>
+            <span className="text-gold">05</span>
             <span className="mx-3" aria-hidden>
               /
             </span>
@@ -111,39 +111,40 @@ export function TestimonialSlider({ images }: { images: string[] }) {
         </div>
       </div>
 
-      {/* The rail starts aligned with the page frame and bleeds off the right edge */}
-      <ul
-        ref={railRef}
-        className="rail mt-12 flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-2 pl-5 pr-5 sm:pl-8 lg:pl-12 2xl:pl-16 [scroll-padding-left:1.25rem] sm:[scroll-padding-left:2rem] lg:[scroll-padding-left:3rem] 2xl:[scroll-padding-left:4rem]"
-      >
-        {images.map((src, i) => (
-          <li
-            key={src}
-            className="w-[82vw] shrink-0 snap-start sm:w-[400px] lg:w-[440px]"
-            aria-roledescription="slide"
-            aria-label={`${i + 1} of ${images.length}`}
-          >
-            <button
-              type="button"
-              onClick={() => open(i)}
-              className="group relative block aspect-square w-full overflow-hidden border border-line bg-ink-2 text-left transition-colors hover:border-gold"
-              aria-label={`Open testimonial ${i + 1} full size`}
+      <div className="frame mt-12">
+        {/* Scrollable rail, kept inside the centered page frame */}
+        <ul
+          ref={railRef}
+          className="rail flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-2"
+        >
+          {images.map((src, i) => (
+            <li
+              key={src}
+              className="w-[82vw] shrink-0 snap-start sm:w-[400px] lg:w-[440px]"
+              aria-roledescription="slide"
+              aria-label={`${i + 1} of ${images.length}`}
             >
-              <Image
-                src={src}
-                alt={`Member testimonial ${i + 1}`}
-                fill
-                sizes="(min-width: 1024px) 440px, (min-width: 640px) 400px, 82vw"
-                className="object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-              <span className="label absolute bottom-0 left-0 bg-ink/90 px-3 py-2 text-bone-dim transition-colors group-hover:bg-gold group-hover:text-ink">
-                View
-              </span>
-            </button>
-          </li>
-        ))}
-        <li aria-hidden className="w-px shrink-0" />
-      </ul>
+              <button
+                type="button"
+                onClick={() => open(i)}
+                className="group relative block aspect-square w-full overflow-hidden border border-line bg-ink-2 text-left transition-colors hover:border-gold"
+                aria-label={`Open testimonial ${i + 1} full size`}
+              >
+                <Image
+                  src={src}
+                  alt={`Member testimonial ${i + 1}`}
+                  fill
+                  sizes="(min-width: 1024px) 440px, (min-width: 640px) 400px, 82vw"
+                  className="object-contain p-2 transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+                <span className="label absolute bottom-0 left-0 bg-ink/90 px-3 py-2 text-bone-dim transition-colors group-hover:bg-gold group-hover:text-ink">
+                  View
+                </span>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <dialog
         ref={dialogRef}

@@ -63,7 +63,7 @@ body {
   /* Full-width page frame: generous but not boxed */
   .frame {
     width: 100%;
-    max-width: 1680px;
+    max-width: 1240px;
     margin-inline: auto;
     padding-inline: 1.25rem;
   }
@@ -172,19 +172,6 @@ body {
   padding-bottom: 0.04em;
 }
 
-/* Gold ticker band */
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
-}
-.marquee-track {
-  animation: marquee 45s linear infinite;
-}
-.marquee:hover .marquee-track {
-  animation-play-state: paused;
-}
-
 /* Hide scrollbar on the testimonial rail, it has its own controls */
 .rail {
   scrollbar-width: none;
@@ -224,9 +211,6 @@ dialog::backdrop {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .marquee-track {
-    animation: none;
   }
   .js-reveal [data-reveal] {
     transform: none;

@@ -17,25 +17,11 @@ export const site = {
 
 export const nav = [
   { label: "About", href: "#about" },
-  { label: "Method", href: "#method" },
-  { label: "Program", href: "#program" },
+  { label: "What's included", href: "#included" },
+  { label: "Mentorship", href: "#program" },
   { label: "Pricing", href: "#pricing" },
   { label: "Reviews", href: "#testimonials" },
-  { label: "Community", href: "#socials" },
-  { label: "FAQ", href: "#faq" },
-];
-
-export const instruments = [
-  "XAU/USD",
-  "EUR/USD",
-  "GBP/USD",
-  "USD/JPY",
-  "AUD/USD",
-  "USD/CAD",
-  "USD/CHF",
-  "NZD/USD",
-  "GBP/JPY",
-  "EUR/JPY",
+  { label: "Follow", href: "#socials" },
 ];
 
 export const about = {
@@ -51,33 +37,10 @@ export const about = {
   },
 };
 
-export const pillars = [
-  {
-    step: "01",
-    title: "Read the structure",
-    body: "Start from what price is actually doing: highs, lows, breaks and ranges on gold and the major pairs.",
-  },
-  {
-    step: "02",
-    title: "Find the bias",
-    body: "Build a daily directional bias before the session opens, so every decision has context.",
-  },
-  {
-    step: "03",
-    title: "Manage the risk",
-    body: "Define invalidation and position size first. Protecting capital comes before chasing profit.",
-  },
-  {
-    step: "04",
-    title: "Let the process work",
-    body: "Execute the plan, review it honestly, and repeat. Consistency is built from the routine, not the outcome.",
-  },
-];
-
 export const daily = {
-  eyebrow: "Every trading day",
-  title: "You don't just see the idea. You see why.",
-  body: "Every trading day, members get Junaid's market analysis, key levels, and the trade ideas he's watching, along with the reasoning behind each one. Every idea becomes a lesson you can use on your own charts.",
+  eyebrow: "The community",
+  title: "What's included in the community.",
+  body: "Every trading day, members get the market analysis, key levels and trade ideas we're watching, along with the reasoning behind each one. Every idea becomes a lesson you can use on your own charts.",
   items: [
     {
       icon: "chart",
@@ -92,30 +55,39 @@ export const daily = {
     {
       icon: "target",
       title: "Trade ideas",
-      body: "Where Junaid is looking to buy or sell, with entry logic and invalidation.",
+      body: "Where we are looking to buy or sell, with entry logic and invalidation.",
     },
     {
       icon: "book",
       title: "The reasoning",
       body: "The why behind every idea, so you learn to find it yourself.",
     },
+    {
+      icon: "chat",
+      title: "Premium chat with traders",
+      body: "A private chat where members share charts, ask questions and review trades together.",
+    },
+    {
+      icon: "play",
+      title: "Recorded learning lectures",
+      body: "A library of recorded lessons you can watch at your own pace and come back to anytime.",
+    },
   ],
 };
 
-export const different = {
-  eyebrow: "What makes it different",
-  title: "The plan is traded out loud.",
-  body: "The bias is shared before the market opens, not after the move has already happened. When an idea doesn't work, it's broken down just as openly as the ones that do, because the losing trades teach more than the winners ever will.",
-  // Left column = what you see elsewhere, right column = Elite Forex Hub
-  compare: [
-    ["Results posted after the move", "Bias shared before the open"],
-    ["Only winning trades shown", "Losses broken down just as openly"],
-    ["Indicator overload", "Clean market structure"],
-    ["Recycled strategies", "One clear, repeatable process"],
-    ["Flashy screenshots", "Real reasoning you can apply"],
+export const mentorship = {
+  eyebrow: "Mentorship",
+  title: "1 on 1 Mentorship Program",
+  subtitle: "Unlock the secrets of successful trading.",
+  body: "Work directly with Junaid and learn the exact process behind the daily analysis, so you can apply it on your own charts.",
+  // PLACEHOLDER: confirm what the mentorship includes
+  includes: [
+    "1:1 sessions with Junaid",
+    "A-Z complete trading methodology",
+    "Personal trade and journal review",
+    "A custom plan built around your schedule",
+    "Priority support",
   ],
-  focus:
-    "The focus is on gold and major forex pairs, built around market structure, daily bias, and disciplined risk management. Just a clear, repeatable way of reading the market.",
 };
 
 // PLACEHOLDER: course modules, replace with the real curriculum
@@ -157,7 +129,7 @@ export const curriculum = [
   },
 ];
 
-// Prices confirmed; plan names and features are still PLACEHOLDER
+// Prices confirmed; descriptions and features are still PLACEHOLDER
 export const plans = [
   {
     name: "Community",
@@ -167,42 +139,27 @@ export const plans = [
     features: [
       "Daily bias before the market opens",
       "Key levels on gold and major pairs",
-      "Trade ideas with full reasoning",
+      "Recorded learning lectures",
       "Losing trade breakdowns",
       "Members-only community chat",
     ],
     cta: "Join the community",
-    featured: false,
-  },
-  {
-    name: "Elite Program",
-    price: "$49",
-    period: "/month",
-    description: "The full course plus everything in Community, to learn the method end to end.",
-    features: [
-      "Everything in Community",
-      "Full 7-module video course",
-      "New lessons added every month",
-      "Weekly live market review",
-      "Risk and journaling templates",
-    ],
-    cta: "Enroll now",
-    featured: true,
+    badge: "",
   },
   {
     name: "Mentorship",
     price: "$99",
     period: "one-time",
-    description: "Direct guidance from Junaid for traders ready to go deeper.",
+    description: "Direct, one on one guidance from Junaid for traders ready to go deeper.",
     features: [
-      "Everything in Elite Program",
+      "A-Z complete trading methodology",
       "1:1 sessions with Junaid",
       "Personal trade and journal review",
       "Custom plan for your schedule",
       "Priority support",
     ],
     cta: "Check availability",
-    featured: false,
+    badge: "1 on 1",
   },
 ];
 
@@ -246,34 +203,6 @@ export const socials = [
     href: "https://x.com/rizvtrades",
     blurb: "Quick market notes during the session.",
     icon: "x",
-  },
-];
-
-export const faqs = [
-  {
-    q: "Is this for complete beginners?",
-    a: "Yes. The program starts from the foundations of price and market structure, and the daily analysis explains the reasoning behind every idea so you learn as you follow along.",
-  },
-  {
-    q: "Which markets do you cover?",
-    a: "The focus is gold (XAU/USD) and the major forex pairs. Keeping the list short means deeper, more consistent analysis.",
-  },
-  {
-    q: "Are these signals I just copy?",
-    a: "No. The goal isn't to make you depend on calls. Every idea comes with its reasoning so you can get to the point where you find the bias yourself.",
-  },
-  {
-    q: "When is the daily analysis shared?",
-    a: "The bias and key levels are shared before the market opens, not after the move has already happened.",
-  },
-  {
-    q: "Do you show losing trades?",
-    a: "Always. When an idea doesn't work it's broken down just as openly as the ones that do, because losing trades teach more than winners.",
-  },
-  {
-    // PLACEHOLDER: confirm your refund policy
-    q: "What is the refund policy?",
-    a: "Please contact us before purchasing if you have any questions. Refund terms are listed in our Refund Policy.",
   },
 ];
 
