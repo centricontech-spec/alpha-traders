@@ -9,7 +9,6 @@ export function TestimonialSlider({ images }: { images: string[] }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [active, setActive] = useState(0);
   const [atStart, setAtStart] = useState(true);
-  const [atEnd, setAtEnd] = useState(false);
   const [zoomed, setZoomed] = useState<number | null>(null);
 
   // Track which card is nearest the left edge, and whether we can scroll further
@@ -29,7 +28,6 @@ export function TestimonialSlider({ images }: { images: string[] }) {
     });
     setActive(nearest);
     setAtStart(left <= 4);
-    setAtEnd(left + rail.clientWidth >= rail.scrollWidth - 4);
   }, []);
 
   useEffect(() => {
@@ -43,14 +41,44 @@ export function TestimonialSlider({ images }: { images: string[] }) {
     };
   }, [onScroll]);
 
-  const scrollByCard = (dir: 1 | -1) => {
+  const scrollByCard = useCallback((dir: 1 | -1, wrap = false) => {
     const rail = railRef.current;
     if (!rail) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const behavior = reduce ? "auto" : "smooth";
+    // At the end, loop back to the first card
+    if (wrap && dir === 1 && rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4) {
+      rail.scrollTo({ left: 0, behavior });
+      return;
+    }
     const card = rail.children[0] as HTMLElement | undefined;
     const step = card ? card.offsetWidth + 16 : rail.clientWidth * 0.8;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    rail.scrollBy({ left: dir * step, behavior: reduce ? "auto" : "smooth" });
-  };
+    rail.scrollBy({ left: dir * step, behavior });
+  }, []);
+
+  // Autoplay: advances every few seconds, pauses on hover, focus, touch,
+  // while the lightbox is open, off screen, and never runs with reduced motion
+  const paused = useRef(false);
+  const visible = useRef(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = sectionRef.current;
+    const io = el
+      ? new IntersectionObserver(([e]) => (visible.current = e.isIntersecting), { threshold: 0.25 })
+      : null;
+    if (el && io) io.observe(el);
+    const id = window.setInterval(() => {
+      if (paused.current || !visible.current || document.hidden || dialogRef.current?.open) return;
+      scrollByCard(1, true);
+    }, 3500);
+    return () => {
+      window.clearInterval(id);
+      io?.disconnect();
+    };
+  }, [scrollByCard]);
+  const pause = () => (paused.current = true);
+  const resume = () => (paused.current = false);
 
   const open = (i: number) => {
     setZoomed(i);
@@ -69,7 +97,7 @@ export function TestimonialSlider({ images }: { images: string[] }) {
   }, [zoomed, images.length]);
 
   return (
-    <section id="testimonials" className="overflow-hidden py-20 lg:py-28" aria-roledescription="carousel" aria-label="Member testimonials">
+    <section ref={sectionRef} id="testimonials" className="overflow-hidden py-20 lg:py-28" aria-roledescription="carousel" aria-label="Member testimonials">
       <div className="frame">
         <div className="label flex items-center justify-between border-t border-line pt-4 text-bone-dim">
           <span>
@@ -100,8 +128,7 @@ export function TestimonialSlider({ images }: { images: string[] }) {
             </button>
             <button
               type="button"
-              onClick={() => scrollByCard(1)}
-              disabled={atEnd}
+              onClick={() => scrollByCard(1, true)}
               aria-label="Next testimonial"
               className="flex h-14 w-14 items-center justify-center bg-gold text-ink transition-colors hover:bg-gold-hi active:scale-95 disabled:pointer-events-none disabled:opacity-30"
             >
@@ -111,7 +138,15 @@ export function TestimonialSlider({ images }: { images: string[] }) {
         </div>
       </div>
 
-      <div className="frame mt-12">
+      <div
+        className="frame mt-12"
+        onPointerEnter={pause}
+        onPointerLeave={resume}
+        onFocus={pause}
+        onBlur={resume}
+        onTouchStart={pause}
+        onTouchEnd={resume}
+      >
         {/* Scrollable rail, kept inside the centered page frame */}
         <ul
           ref={railRef}
