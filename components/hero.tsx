@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
@@ -99,7 +99,7 @@ function PlanPanel() {
   );
 }
 
-export function Hero() {
+export function Hero({ backdrop }: { backdrop?: ReactNode }) {
   const root = useRef<HTMLElement>(null);
 
   useGSAP(
@@ -212,7 +212,8 @@ export function Hero() {
   );
 
   return (
-    <section ref={root} id="top" className="hero relative overflow-hidden border-b border-line pt-16">
+    <section ref={root} id="top" className="hero relative isolate overflow-hidden border-b border-line pt-16">
+      {backdrop}
       <noscript>
         <style>{`.hero-hide{visibility:visible!important}`}</style>
       </noscript>
@@ -222,14 +223,8 @@ export function Hero() {
             <p data-eyebrow className="hero-hide label text-gold">
               Gold &amp; major FX / daily bias before the open
             </p>
-            <h1 data-headline className="hero-hide display mt-6 text-[clamp(3.2rem,7.4vw,7.25rem)]">
-              Read the structure.
-              <br />
-              <span className="text-gold">
-                Find the bias.
-              </span>
-              <br />
-              Trade the plan.
+            <h1 data-headline className="hero-hide display mt-6 text-[clamp(3rem,6.6vw,6.5rem)]">
+              Trading is easier with <span className="text-gold">the right people</span> behind you.
             </h1>
           </div>
           <div className="mt-10 flex flex-col gap-8">

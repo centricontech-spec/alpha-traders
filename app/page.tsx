@@ -1,3 +1,5 @@
+import { Backdrop } from "@/components/backdrop";
+import { BackdropMotion } from "@/components/backdrop-motion";
 import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 import { Navbar } from "@/components/navbar";
@@ -23,7 +25,7 @@ export default function Home() {
       </a>
       <Navbar />
       <main id="main" className="flex-1">
-        <Hero />
+        <Hero backdrop={<Backdrop variant="flow" />} />
         <About />
         <Daily />
         <Program />
@@ -34,6 +36,7 @@ export default function Home() {
       </main>
       <Footer />
       <RevealObserver />
+      <BackdropMotion />
     </>
   );
 }

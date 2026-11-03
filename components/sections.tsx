@@ -1,3 +1,4 @@
+import { Backdrop } from "./backdrop";
 import { about, closing, curriculum, daily, mentorship, plans, site, socials } from "@/lib/content";
 import { ArrowRight, Check, FeatureIcon, SocialIcon } from "./icons";
 
@@ -22,7 +23,8 @@ const delay = (i: number, step = 70) => ({ "--reveal-delay": `${i * step}ms` }) 
 
 export function About() {
   return (
-    <section id="about" className="py-20 lg:py-28">
+    <section id="about" className="relative isolate overflow-hidden py-20 lg:py-28">
+      <Backdrop variant="contour" />
       <div className="frame">
         <SectionTag index="01" label={about.eyebrow} />
         <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-10">
@@ -62,7 +64,8 @@ export function About() {
 
 export function Daily() {
   return (
-    <section id="included" className="py-20 lg:py-28">
+    <section id="included" className="relative isolate overflow-hidden py-20 lg:py-28">
+      <Backdrop variant="scan" />
       <div className="frame">
         <SectionTag index="02" label={daily.eyebrow} />
         <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-10">
@@ -98,7 +101,8 @@ export function Daily() {
 
 export function Program() {
   return (
-    <section id="program" className="border-t border-line bg-ink-2 py-20 lg:py-28">
+    <section id="program" className="relative isolate overflow-hidden border-t border-line bg-ink-2 py-20 lg:py-28">
+      <Backdrop variant="diagonal" />
       <div className="frame">
         <SectionTag index="03" label={mentorship.eyebrow} />
         <div className="mt-12 grid gap-12 lg:grid-cols-12 lg:gap-10">
@@ -156,7 +160,8 @@ export function Program() {
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-20 lg:py-28">
+    <section id="pricing" className="relative isolate overflow-hidden py-20 lg:py-28">
+      <Backdrop variant="aurora" />
       <div className="frame">
         <SectionTag index="04" label="Pricing" />
         <div className="mt-12 grid gap-8 lg:grid-cols-12">
@@ -221,7 +226,8 @@ export function Pricing() {
 
 export function Socials() {
   return (
-    <section id="socials" className="py-20 lg:py-28">
+    <section id="socials" className="relative isolate overflow-hidden py-20 lg:py-28">
+      <Backdrop variant="dots" />
       <div className="frame">
         <SectionTag index="06" label="Follow along" />
         <div className="mt-12 grid gap-8 lg:grid-cols-12">
@@ -267,7 +273,8 @@ export function Socials() {
 
 export function Closing() {
   return (
-    <section className="bg-gold text-ink">
+    <section className="relative isolate overflow-hidden bg-gold text-ink">
+      <Backdrop variant="flow-ink" />
       <div className="frame grid gap-10 py-20 lg:grid-cols-12 lg:py-28">
         <h2 data-reveal className="display text-[clamp(3rem,6vw,5.5rem)] lg:col-span-8">
           {closing.title}

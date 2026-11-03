@@ -172,6 +172,36 @@ body {
   padding-bottom: 0.04em;
 }
 
+/* Animated section backdrops (components/backdrop.tsx). Transform-only so they stay on the compositor. */
+.bd-drift { animation: bd-drift linear infinite; will-change: transform; }
+.bd-slow { animation-duration: 70s; }
+.bd-slower { animation-duration: 110s; animation-direction: reverse; }
+.bd-slowest { animation-duration: 150s; }
+@keyframes bd-drift { to { transform: translateX(-50%); } }
+
+.bd-spin { animation: bd-spin 240s linear infinite; }
+@keyframes bd-spin { to { transform: rotate(360deg); } }
+
+.bd-scan { animation: bd-scan 11s cubic-bezier(0.45, 0, 0.55, 1) infinite; will-change: transform; }
+@keyframes bd-scan {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(300%); }
+}
+
+.bd-diag { animation: bd-diag 6s linear infinite; will-change: transform; }
+@keyframes bd-diag { to { transform: translate(40px, 0); } }
+
+.bd-float-a { animation: bd-float-a 26s ease-in-out infinite alternate; will-change: transform; }
+.bd-float-b { animation: bd-float-b 32s ease-in-out infinite alternate; will-change: transform; }
+@keyframes bd-float-a { to { transform: translate(18%, 22%) scale(1.15); } }
+@keyframes bd-float-b { to { transform: translate(-22%, -16%) scale(0.9); } }
+
+.bd-dash { animation: bd-dash linear infinite; }
+.bd-dash-fast { animation-duration: 9s; }
+.bd-dash-mid { animation-duration: 16s; animation-direction: reverse; }
+.bd-dash-slow { animation-duration: 24s; }
+@keyframes bd-dash { to { stroke-dashoffset: -460; } }
+
 /* Hide scrollbar on the testimonial rail, it has its own controls */
 .rail {
   scrollbar-width: none;
@@ -219,5 +249,8 @@ dialog::backdrop {
   .btn:active,
   .btn:hover svg {
     transform: none;
+  }
+  .bd-anim {
+    animation: none !important;
   }
 }
