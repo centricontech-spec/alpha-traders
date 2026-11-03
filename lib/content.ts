@@ -7,21 +7,19 @@ export const site = {
   trader: "Junaid Rizv",
   tagline: "Read the structure. Find the bias. Manage the risk.",
   // PLACEHOLDER: replace with the real checkout / signup URL
-  joinUrl: "#pricing",
-  // PLACEHOLDER: replace with the real WhatsApp number (digits only, with country code)
-  whatsappUrl: "https://wa.me/910000000000",
-  // PLACEHOLDER: replace with the real support email
-  email: "support@eliteforexhub.com",
+  joinUrl: "/#pricing",
+  whatsappUrl: "https://wa.me/923098601926",
+  email: "eliteforexbyrizv@gmail.com",
   year: 2026,
 };
 
 export const nav = [
-  { label: "About", href: "#about" },
-  { label: "What's included", href: "#included" },
-  { label: "Mentorship", href: "#program" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Reviews", href: "#testimonials" },
-  { label: "Follow", href: "#socials" },
+  { label: "About", href: "/#about" },
+  { label: "What's included", href: "/#included" },
+  { label: "Mentorship", href: "/#program" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "Reviews", href: "/#testimonials" },
+  { label: "Follow", href: "/#socials" },
 ];
 
 export const about = {

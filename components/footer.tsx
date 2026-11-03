@@ -1,4 +1,6 @@
 import { disclaimer, nav, site, socials } from "@/lib/content";
+import { legalDocs } from "@/lib/legal";
+import Link from "next/link";
 import Image from "next/image";
 import { SocialIcon } from "./icons";
 
@@ -8,7 +10,7 @@ export function Footer() {
       <div className="frame pt-16">
         <div className="grid gap-12 border-b border-line pb-14 md:grid-cols-12">
           <div className="md:col-span-5">
-            <a href="#top" className="flex items-center gap-3">
+            <a href="/" className="flex items-center gap-3">
               <Image src="/logo-mark.png" alt="" width={513} height={398} className="h-11 w-auto" />
               <span className="display text-3xl">{site.name}</span>
             </a>
@@ -76,13 +78,12 @@ export function Footer() {
               </li>
             </ul>
             <p className="label mt-8 text-gold">Legal</p>
-            {/* PLACEHOLDER: create these pages */}
             <ul className="mt-5">
-              {["Privacy Policy", "Terms & Conditions", "Refund Policy"].map((l) => (
-                <li key={l}>
-                  <a href="#" className="inline-flex min-h-9 items-center text-bone-dim hover:text-bone">
-                    {l}
-                  </a>
+              {legalDocs.map((d) => (
+                <li key={d.slug}>
+                  <Link href={`/${d.slug}`} className="inline-flex min-h-9 items-center text-bone-dim hover:text-bone">
+                    {d.title}
+                  </Link>
                 </li>
               ))}
             </ul>

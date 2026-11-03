@@ -30,7 +30,7 @@ export function Navbar() {
       }`}
     >
       <nav aria-label="Main" className="frame flex h-16 items-center justify-between gap-6">
-        <a href="#top" className="flex items-center gap-3" aria-label={`${site.name} home`}>
+        <a href="/" className="flex items-center gap-3" aria-label={`${site.name} home`}>
           <Image src="/logo-mark.png" alt="" width={513} height={398} priority className="h-8 w-auto" />
           <span className="display text-[1.35rem] leading-none tracking-wide">{site.name}</span>
         </a>
