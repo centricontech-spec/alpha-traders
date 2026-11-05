@@ -140,6 +140,10 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
                     {legalContact.whatsapp}
                   </a>
                 </dd>
+                <dt className="label text-bone-dim">Address</dt>
+                <dd>
+                  <address className="not-italic text-bone">{legalContact.address}</address>
+                </dd>
                 <dt className="label text-bone-dim">Website</dt>
                 <dd>
                   <Link href="/" className="text-bone underline decoration-gold underline-offset-4 hover:text-gold-hi">

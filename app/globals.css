@@ -92,6 +92,15 @@ body {
     letter-spacing: -0.01em;
   }
 
+  /* Price figures: upright classic serif with lining numerals */
+  .price {
+    font-family: var(--font-playfair), Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    font-variant-numeric: lining-nums;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+
   .label {
     font-family: var(--font-plex-mono), ui-monospace, monospace;
     font-size: 0.72rem;

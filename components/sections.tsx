@@ -189,7 +189,7 @@ export function Pricing() {
                 {plan.badge && <span className="label bg-gold px-2 py-1 text-ink">{plan.badge}</span>}
               </div>
               <p className="mt-8 flex items-end gap-3">
-                <span className={`display text-8xl ${plan.badge ? "text-gold" : "text-bone"}`}>{plan.price}</span>
+                <span className={`price text-7xl sm:text-8xl ${plan.badge ? "text-gold" : "text-bone"}`}>{plan.price}</span>
                 <span className="label mb-2 text-bone-dim">{plan.period}</span>
               </p>
               <p className="mt-6 min-h-12 leading-relaxed text-bone-dim">{plan.description}</p>

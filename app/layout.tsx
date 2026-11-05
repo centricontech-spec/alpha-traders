@@ -1,11 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, IBM_Plex_Mono } from "next/font/google";
+import { Archivo, IBM_Plex_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const archivo = Archivo({
   variable: "--font-archivo",
   subsets: ["latin"],
   axes: ["wdth"],
+});
+
+// Classic serif used only for the price figures
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["600"],
 });
 
 const plexMono = IBM_Plex_Mono({
@@ -34,7 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${archivo.variable} ${plexMono.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

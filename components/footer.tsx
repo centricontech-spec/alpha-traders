@@ -77,6 +77,7 @@ export function Footer() {
                 </a>
               </li>
             </ul>
+            <address className="mt-3 max-w-[16rem] text-xs not-italic leading-relaxed text-bone-dim/70">{site.address}</address>
             <p className="label mt-8 text-gold">Legal</p>
             <ul className="mt-5">
               {legalDocs.map((d) => (

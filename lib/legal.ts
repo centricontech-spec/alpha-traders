@@ -22,6 +22,7 @@ export const legalContact = {
   whatsapp: "+92 309 8601926",
   whatsappUrl: "https://wa.me/923098601926",
   website: "eliteforexhub.com",
+  address: "House No R696, Area Bufferzone, Sector 15-B, Karachi, Pakistan",
 };
 
 const effective = "3 November 2026";

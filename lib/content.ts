@@ -10,6 +10,7 @@ export const site = {
   joinUrl: "/#pricing",
   whatsappUrl: "https://wa.me/923098601926",
   email: "eliteforexbyrizv@gmail.com",
+  address: "House No R696, Area Bufferzone, Sector 15-B, Karachi, Pakistan",
   year: 2026,
 };
 
